@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wien, eine alte Stadt mit modernem Flair - Benkrouidem Ibrahim 2nd2</title>
+    <style>
+        :root {
+            --imperial-red: #E1142A;
+            --habsburg-blue: #005B9A;
+            --gold-leaf: #D4AF37;
+            --ivory: #FFFFF0;
+            --vintage-paper: #F5F5DC;
+            --gothic-gray: #2A2A2A;
+        }
+        
+        @font-face {
+            font-family: 'Habsburg';
+            src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap');
+        }
+        
+        @font-face {
+            font-family: 'Imperial Script';
+            src: url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.9;
+            color: var(--gothic-gray);
+            background-color: var(--vintage-paper);
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+        }
+        
+        .flyer-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--ivory);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            border: 1px solid var(--gold-leaf);
+        }
+        
+        .header {
+            background: 
+                linear-gradient(135deg, rgba(0,91,154,0.3) 0%, rgba(225,20,42,0.3) 100%),
+                url('https://s1.1zoom.me/big0/556/Austria_Vienna_Houses_Rivers_Bridges_Night_Street_594351_1280x720.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--imperial-red), 
+                var(--gold-leaf), 
+                var(--habsburg-blue));
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.5), 
+                transparent);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+            letter-spacing: 1.5px;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+        
+        .header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: var(--gold-leaf);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-style: italic;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+            font-family: 'Parisienne', cursive;
+            color: var(--gold-leaf);
+        }
+        
+        .student-info {
+            background-color: rgba(225, 20, 42, 0.85);
+            color: white;
+            padding: 10px 25px;
+            display: inline-block;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid var(--gold-leaf);
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .content-section {
+            padding: 40px;
+            position: relative;
+        }
+        
+        .article-tag {
+            display: inline-block;
+            background: linear-gradient(to right, var(--habsburg-blue), var(--imperial-red));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--gold-leaf);
+        }
+        
+        .attraction {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+        
+        .attraction:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--gold-leaf), 
+                transparent);
+        }
+        
+        .attraction h2 {
+            color: var(--imperial-red);
+            margin-top: 0;
+            font-size: 2.3rem;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .attraction h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--imperial-red), var(--gold-leaf));
+            border-radius: 2px;
+        }
+        
+        .attraction p {
+            font-size: 1.15rem;
+            text-align: justify;
+            margin-bottom: 25px;
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .attraction p::first-letter {
+            font-size: 2.5rem;
+            color: var(--imperial-red);
+            float: left;
+            margin-right: 8px;
+            line-height: 0.8;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .attraction img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin: 25px 0;
+            border-radius: 6px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--gold-leaf);
+        }
+        
+        .attraction img:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .image-grid img {
+            height: 250px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--habsburg-blue), var(--imperial-red));
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1rem;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-leaf);
+        }
+        
+        .footer p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .footer p:first-child {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Éléments décoratifs */
+        .corner-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .top-left {
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 30% 30%, var(--imperial-red), transparent 70%);
+        }
+        
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+            background: radial-gradient(circle at 70% 70%, var(--habsburg-blue), transparent 70%);
+        }
+        
+        .vintage-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 70px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.3rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .attraction h2 {
+                font-size: 2rem;
+            }
+            
+            .attraction img,
+            .image-grid img {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .attraction p {
+                font-size: 1rem;
+            }
+            
+            .student-info {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flyer-container">
+        <div class="vintage-overlay"></div>
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        
+        <div class="header">
+            <h1>Wien, eine alte Stadt mit modernem Flair</h1>
+            <p>Kaiserliche Eleganz trifft zeitgenössischen Charme</p>
+            <div class="student-info">Benkrouidem Ibrahim - Klasse 2nd2</div>
+            <div class="scroll-hint">↓ Scrollen ↓</div>
+        </div>
+        
+        <div class="content-section">
+            <!-- Article 1 - Texte original inchangé -->
+            <div class="attraction">
+                <span class="article-tag">Die Atmosphäre in Wien - Artikel 1</span>
+                <h2>Die Seele Wiens</h2>
+                <p>In Wien gibt es viele Touristen, weil die Stadt sehr schön ist. Die Leute sagen, dass sie die Kultur mögen, die alten Gebäude und die kleinen Straßen mit ihren Musikanten. Es gibt auch Fiaker; das macht die Stadt alt und gleichzeitig modern. Museen und Kaffeehäuser sind auch wichtig. Die Leute finden Wien ruhig. Man kann hier langsam leben und viel Kunst spüren.</p>
+                
+                <div class="image-grid">
+                    <img src="https://media.istockphoto.com/id/1859810236/de/foto/statue-von-erzherzog-karl-auf-dem-heldenplatz-wien-%C3%B6sterreich.jpg?s=612x612&w=0&k=20&c=BjleiDkZqsLOFU1mKIzHSobO8YWhN5Wu9Mql4TbETmw=" alt="Wiener Kultur">
+                    <img src="https://bilder.deutschlandfunk.de/FI/LE/_0/d0/FILE_0d0a699fd3105b1527e825c25130798e/cafe-landtmann-kafeehaus-wien-jpg-100-1920x1080.jpg" alt="Kaffeehaus">
+                </div>
+            </div>
+            
+            <!-- Article 2 --->
+            <div class="attraction">
+                <span class="article-tag">Die verschiedenen historischen Denkmäler Wiens - Artikel 2</span>
+                <h2>Die Geschichte der Monumente von Wien</h2>
+                <p>In Wien kann man mehrere Denkmäler sehen, wie die Straßenbahn, den Stephansdom, das Riesenrad und die Fiaker.
+                Ich rate Ihnen, mit der Straßenbahn anzufangen, auch „Tramway" oder „Bim" genannt.
+                Sie hat ihren Ursprung in der Pferdetramway (1865).
+                Die Geschichte der Straßenbahn: 1883 fuhr die erste Dampftramway, 1897 begann die Elektrifizierung und die Kommunalisierung wurde eingeleitet.
+                Zweitens: der Stephansdom. Sein Namensgeber ist der heilige Stephanus, der als erster christlicher Märtyrer gilt.
+                Drittens: das Wiener Riesenrad im Prater. Sein Durchmesser beträgt knapp 61 Meter.
+                Die gesamte Eisenkonstruktion wiegt 430 Tonnen. Es dreht sich mit einer Geschwindigkeit von 2,7 km/h.
+                Und zum Schluss: Der Fiaker mit zwei schönen Pferden für eine Tour durch die Stadt war wirklich schön!</p>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Stra%C3%9Fenbahn-Trier-Henney-1.jpg" alt="Straßenbahn">
+                
+                <div class="image-grid">
+                    <img src="https://dynamic-media.tacdn.com/media/photo-o/2f/af/a1/61/caption.jpg?w=700&h=500&s=1" alt="Stephansdom">
+                    <img src="https://wienerriesenrad.com/wp-content/uploads/2020/03/historisch_61.jpg" alt="Riesenrad">
+                </div>
+            </div>
+            
+            <!-- Article 3 --->
+            <div class="attraction">
+                <span class="article-tag">Franz und seine Spuren in Wien - Artikel 3</span>
+                <h2>Das Habsburger Vermächtnis</h2>
+                <p>Kaiser Franz Joseph I. (1830–1916) bestieg mit 18 Jahren den Thron des Kaisertums Österreich und regierte beeindruckende 68 Jahre lang.
+                Er wurde zu einer der wichtigsten Persönlichkeiten der österreichischen Geschichte.
+                Am 24. April 1854 heiratete Franz Joseph seine Cousine Elisabeth (1837–1898), genannt Sisi, die für ihre Schönheit und Intelligenz bekannt war.
+                Das Paar hatte vier Kinder. Die Familie lebte in der Hofburg im Zentrum Wiens, einem großen und prachtvollen Palast.
+                Franz Joseph I. starb 1916 an einer Lungenentzündung.
+                Er wurde der „ewige Kaiser" genannt, weil er sehr lange regierte.
+                Nach der Revolution von 1848 musste Franz Joseph schrittweise politische Konzessionen machen, um das Reich zu stabilisieren.</p>
+                
+                <img src="https://www.oostenrijkmagazine.nl/cmsoostenrijk/wp-content/uploads/2016/06/KaiserFranzJoseph.jpg" alt="Kaiser Franz Joseph">
+                
+                <div class="image-grid">
+                    <img src="https://www.planet-wissen.de/natur/anatomie_des_menschen/haare/wb-haare-sissi-100~_v-gseagaleriexl.jpg" alt="Kaiserin Sisi">
+                    <img src="https://ibis-wien-mariahilf.meinhotel.top/wp-content/uploads/ibis-wien-mariahilf-kultur-alte-hofburg.jpg" alt="Hofburg">
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Projekt von Benkrouidem Ibrahim - 2nd2</p>
+            <p>der sehr schöne majestätische spektakuläre unglaubliche Flyer von Ibrahim| © Wien Tourismus 2025 </p>
+        </div>
+    </div>
+</body>
+</html>
